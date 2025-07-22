@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: user-service
+              uri: http://localhost:8082
+              predicates:
+                - Path=/users/**
+
+            - id: admin-service
+              uri: http://localhost:8082
+              predicates:
+                - Path=/admin/**
+
+            - id: ticket-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/ticket/**
+
+
+jwt:
+  secret: 843567893696976453275974432697R634976R738467TR678T34865R6834R8763T478378637664538745673865783678548735687R3
