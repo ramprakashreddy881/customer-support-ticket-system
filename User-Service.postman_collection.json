@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "6dafdda4-ce90-470d-baa3-0992006952d8",
+		"name": "User-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37320256"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"test\",\n  \"email\": \"test@gmail.com\",\n  \"password\": \"test@123\",\n  \"role\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@gmail.com\",\n    \"password\": \"test@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzNjYyYjVmNi05YTFkLTRiNDctOGIyYy0xODhlMGYyM2ZmMGYiLCJyb2xlcyI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTMyMDU3NDEsImV4cCI6MTc1MzI5MjE0MX0.t64NZIZLDX07rSsjBjXQNeX9JWU2iVDMlMW-ktSkMdg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/profile/3662b5f6-9a1d-4b47-8b2c-188e0f23ff0f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"profile",
+						"3662b5f6-9a1d-4b47-8b2c-188e0f23ff0f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin - getAllUsersDetails",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "admin-role update of users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/users?id=34b93d47-5b84-4f23-8dd6-f984fc3f539b&role=support",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"users"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "34b93d47-5b84-4f23-8dd6-f984fc3f539b"
+						},
+						{
+							"key": "role",
+							"value": "support"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin- delete user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/users/6d345a9d-f1ff-43fb-adaa-c2933536a774",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"users",
+						"6d345a9d-f1ff-43fb-adaa-c2933536a774"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

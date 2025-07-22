@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "11d12495-b241-4db0-b430-4fbf052c1071",
+		"name": "Ticket-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37320256"
+	},
+	"item": [
+		{
+			"name": "create ticket",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Task - assignmenrt of ticket service\",\n  \"description\": \"Hexagonal architecture\",\n  \"status\": \"OPEN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ticket by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Task - assignmenrt of ticket service\",\n  \"description\": \"CQRS and Hexagonal architecture\",\n  \"status\": \"OPEN\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/b4e5bae8-6dd1-4dd7-b7c2-6c0a48d48435",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"b4e5bae8-6dd1-4dd7-b7c2-6c0a48d48435"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tickets by userId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Task - assignmenrt of ticket servic\",\n  \"description\": \"Hexagonal architecture\",\n  \"status\": \"OPEN\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket?userId=3329371b-9338-497a-898f-d0835afcbed7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "3329371b-9338-497a-898f-d0835afcbed7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ticket - status update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"CLOSED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/b4e5bae8-6dd1-4dd7-b7c2-6c0a48d48435",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"b4e5bae8-6dd1-4dd7-b7c2-6c0a48d48435"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tickets by status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"CLOSED\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/ticket/status/CLOSED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ticket",
+						"status",
+						"CLOSED"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
